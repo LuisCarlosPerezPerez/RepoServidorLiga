@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container a {
+    display: block;
+    text-decoration: none;
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.container a:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <a th:href="@{/crearJugador}">Crear Jugador</a>
+        <a th:href="@{/crearEquipo}">Crear Equipos</a>
+        <a th:href="@{/mostrarEquipo}">Mostrar equipos</a>
+        <a th:href="@{/Modequipo}">Modificar equipo</a>
+        <a th:href="@{/Elimequipo}">Eliminar equipo</a>
+        <a th:href="@{/CrearPartido}">Crear Partido</a>
+        <a th:href="@{/SimularPartido}">Realizar partido</a>
+    </div>
+</body>
+</html>

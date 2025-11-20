@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+</style>
+</head>
+<body>
+	<div >
+	<h2>Formulario Resultado del Partido</h2>
+	
+	<form th:action="@{/GuardarResultado}" method="post">
+        <input type="hidden" name="ID" th:value="${partido.ID}" />
+
+        <label>Goles equipo1:</label>
+        <input type="number" name="goles_equipo1" min="0" />
+
+        <label>Goles equipo2:</label>
+        <input type="number" name="goles_equipo2"min="0" />
+        
+        <button type="submit">Guardar resultado</button>
+    </form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef1f5;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    max-width: 450px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"], input[type="hidden"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}
+</style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Modificar Equipo</h1>
+
+    <form action="#" th:action="@{/modificacionfinal}" th:object="${equipo}" method="post">
+        <!-- nombre del equipo que se quiere modificar, lo necesito para que el programa sepa cual es -->
+        <input type="hidden" name="nombre" th:value="${equipo.nombre}" />
+
+        <!-- nuevo entrenador -->
+        <label for="titulo">Entrenador del Equipo:</label>
+        <input type="text" id="titulo" name="nuevoentrenador" th:value="${equipo.entrenador}" />
+
+        <!-- añadir jugador -->
+        <label for="agregarjugador">Introduce el DNI del jugador a Añadir:</label>
+        <input type="text" id="agregarjugador" name="AgregarJugador" />
+
+        <!-- eliminar jugador -->
+        <label for="modificar_nombre">Introduce el DNI del jugador a Eliminar:</label>
+        <input type="text" id="modificar_nombre" name="EliminarJugador" />
+
+        <button type="submit">Modificar</button>
+    </form>
+</div>
+</body>
+</html>

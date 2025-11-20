@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Crear Partido</title>
+<style>
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef1f5;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    max-width: 450px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}
+</style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Crear Partido</h1>
+
+    <form action="#" th:action="@{/AgregarPartido}" th:object="${partido}" method="post">
+        <label for="ID">Introduce el ID del partido:</label>
+        <input type="text" id="ID" name="ID"/>
+
+        <label for="equipo1">Introduce el nombre del primer equipo:</label>
+        <input type="text" id="equipo1" name="equipo1"/>
+
+        <label for="equipo2">Introduce el nombre del segundo equipo:</label>
+        <input type="text" id="equipo2" name="equipo2"/>
+
+        <label for="lugar">Introduce el lugar del partido:</label>
+        <input type="text" id="lugar" name="lugar"/>
+
+        <label for="fecha_partido">Introduce la fecha del partido:</label>
+        <input type="date" id="fecha_partido" name="fecha_partido"/>
+
+        <button type="submit">Crear Partido</button>
+    </form>
+</div>
+</body>
+</html>
