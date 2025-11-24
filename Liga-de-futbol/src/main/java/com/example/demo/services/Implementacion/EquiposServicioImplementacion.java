@@ -1,5 +1,6 @@
 package com.example.demo.services.Implementacion;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.context.annotation.Primary;
@@ -89,6 +90,11 @@ public class EquiposServicioImplementacion implements InterfazEquipos{
 				}
 			}
 		}
+		return listaequipos;
+	}
+	public List<EquipoDTO> mostrarClasifEquipos() {
+		// TODO Auto-generated method stub
+		listaequipos.sort(Comparator.comparing(EquipoDTO::getPuntos).reversed());
 		return listaequipos;
 	}
 

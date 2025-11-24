@@ -73,4 +73,9 @@ public class EquiposController {
 			model.addAttribute("equipos", serviciodelEquipo.mostrarEquipos());
 			return "/equipo/mostrarequipos";
 		}
+		@GetMapping("/mostrarClasif")
+		public String listarClasif(Model model) {
+			model.addAttribute("equipos", serviciodelEquipo.mostrarClasifEquipos());
+			return "/equipo/mostrarequiposclasif";
+		}
 }

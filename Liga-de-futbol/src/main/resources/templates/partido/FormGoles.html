@@ -4,7 +4,86 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
+	/* 1. Estilos Generales */
+	body {
+	    font-family: Arial, Helvetica, sans-serif;
+	    background-color: #f4f6f8; /* Fondo gris claro */
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	/* 2. Contenedor Principal (Asumiendo que el <div> es el contenedor principal) */
+	/* Se utiliza un selector de atributo para el div sin clase, pero es mejor añadir class="container" */
+	body > div:first-of-type {
+	    max-width: 500px; /* Un ancho más estrecho ya que es un formulario corto */
+	    margin: 100px auto; /* Centrado con margen superior e inferior */
+	    background-color: #ffffff;
+	    padding: 30px 40px;
+	    border-radius: 10px;
+	    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+	}
+	
+	h2 {
+	    text-align: center;
+	    margin-bottom: 30px;
+	    color: #333;
+	    border-bottom: 2px solid #007bff; /* Línea separadora azul */
+	    padding-bottom: 10px;
+	}
+	
+	/* 3. Estilos del Formulario */
+	form {
+	    display: flex;
+	    flex-direction: column; /* Organiza los elementos verticalmente */
+	    gap: 15px; /* Espacio entre los elementos del formulario */
+	}
+	
+	/* Estilo para las etiquetas */
+	label {
+	    font-weight: bold;
+	    color: #555;
+	    margin-bottom: 5px;
+	    display: block; /* Asegura que la etiqueta ocupe su propia línea */
+	}
+	
+	/* Estilo para los campos de entrada de goles */
+	input[type="number"] {
+	    width: 100%;
+	    padding: 10px;
+	    border: 1px solid #ccc;
+	    border-radius: 6px;
+	    font-size: 1.1em;
+	    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+	    transition: border-color 0.3s, box-shadow 0.3s;
+	    text-align: center; /* Centra el número dentro del input */
+	}
+	
+	input[type="number"]:focus {
+	    border-color: #007bff;
+	    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+	    outline: none; /* Elimina el borde de enfoque predeterminado */
+	}
+	
+	/* 4. Estilos del Botón de Enviar */
+	button[type="submit"] {
+	    display: block;
+	    width: 100%;
+	    padding: 12px;
+	    background-color: #007bff; /* Azul para la acción principal */
+	    color: white;
+	    font-size: 1.1em;
+	    font-weight: bold;
+	    border: none;
+	    border-radius: 6px;
+	    cursor: pointer;
+	    transition: 0.3s ease;
+	    margin-top: 20px;
+	}
+	
+	button[type="submit"]:hover {
+	    background-color: #0056b3;
+	    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+	}
 </style>
 </head>
 <body>

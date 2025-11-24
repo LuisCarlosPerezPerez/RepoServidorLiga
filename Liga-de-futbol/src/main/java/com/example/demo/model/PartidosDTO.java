@@ -6,8 +6,8 @@ public class PartidosDTO {
 	/*Los organizadores pueden programar partidos entre dos equipos, registrando la fecha,
 	lugar y equipos participantes.*/
 	private int ID;
-	private String equipo1;
-	private String equipo2;
+	private EquipoDTO equipo1;
+	private EquipoDTO equipo2;
 	private String lugar;
 	private String fecha_partido;
 	private String Realizado="Pendiente";
@@ -19,7 +19,7 @@ public class PartidosDTO {
 
 	}
 	
-	public PartidosDTO(int ID,String equipo1, String equipo2, String fecha_partido, String lugar) {
+	public PartidosDTO(int ID,EquipoDTO equipo1, EquipoDTO equipo2, String fecha_partido, String lugar) {
 		super();
 		this.ID= ID;
 		this.equipo1 = equipo1;
@@ -28,19 +28,19 @@ public class PartidosDTO {
 		this.fecha_partido = fecha_partido;
 	}
 
-	public String getEquipo1() {
+	public EquipoDTO getEquipo1() {
 		return equipo1;
 	}
 
-	public void setEquipo1(String equipo1) {
+	public void setEquipo1(EquipoDTO equipo1) {
 		this.equipo1 = equipo1;
 	}
 
-	public String getEquipo2() {
+	public EquipoDTO getEquipo2() {
 		return equipo2;
 	}
 
-	public void setEquipo2(String equipo2) {
+	public void setEquipo2(EquipoDTO equipo2) {
 		this.equipo2 = equipo2;
 	}
 

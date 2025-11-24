@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* 1. Estilos Generales */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8; /* Fondo gris claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Contenedor Principal */
+.container {
+    max-width: 900px; /* Ancho un poco mayor para las tablas */
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+h1 { /* Estilo para los nombres de los equipos */
+    color: #007bff;
+    font-size: 1.5em;
+    margin: 20px 0 10px 0;
+}
+
+/* 3. Estilos de la Tabla (para las estadísticas) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #007bff; /* Azul primario */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Efecto cebrado */
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 4. Estilos de los Inputs dentro de la tabla */
+table input[type="number"] {
+    width: 60px; /* Ancho fijo para los campos numéricos */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+table input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* 5. Estilos del Botón de Enviar */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745; /* Verde para la acción de "Guardar" */
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #1e7e34;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Ajuste para el div principal sin clase definida */
+/* Asumo que el div que contiene todo el formulario debería ser el .container */
+body > div:first-of-type {
+    max-width: 900px; 
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+	<div >
+		<h2>Formulario Stats Jugadores despues del partido</h2>
+		
+		<form th:action="@{/GuardarStats}" method="post">
+	        <input type="hidden" name="ID" th:value="${partido.ID}" />
+			<input type="text" >
+			<div th:if="${not jugadoreq1.isEmpty()}">
+		        <table>
+		        	<h1 th:text="${partido.equipo1.nombre}">Nombre del Equipo 1</h1>
+		        		 <tr>
+		                    <th>Nombre</th>
+		                    <th>Goles</th>
+		                    <th>Amarillas</th>
+		                    <th>Rojas</th>
+		                    <th>Goles Recibidos</th>
+		                </tr>
+		                <tr th:each="jugadoresq1 : ${jugadoreq1}">
+		                    <td th:text="${jugadoresq1.nombre}">Nombre</td>
+		                    <td><input type="number" name="goleseq1" th:value="${jugadoresq1.goles}"></td>
+		                    <td><input type="number" name="amarillaseq1" th:value="${jugadoresq1.amarillas}"></td>
+		                    <td><input type="number" name="rojaseq1" th:value="${jugadoresq1.rojas}"></td>
+		                    <td><input type="number" name="golesrecibidoseq1" th:value="${jugadoresq1.golesRecibidos}"></td>
+		                </tr>
+		        </table>
+		    </div>
+		    <div th:if="${not jugadoreq2.isEmpty()}">
+		        <table>
+		        	<h1 th:text="${partido.equipo2.nombre}">Nombre del Equipo 2</h1>
+		        	
+		        	    <tr>
+		                    <th>Nombre</th>
+		                    <th>Goles</th>
+		                    <th>Amarillas</th>
+		                    <th>Rojas</th>
+		                    <th>Goles Recibidos</th>
+		                </tr>
+		                <tr th:each="jugadoresq2 : ${jugadoreq2}">
+		                    <td th:text="${jugadoresq2.nombre}">Nombre</td>
+		                    <td><input type="number" name="goleseq2" th:value="${jugadoresq2.goles}"></td>
+		                    <td><input type="number" name="amarillaseq2" th:value="${jugadoresq2.amarillas}"></td>
+		                    <td><input type="number" name="rojaseq2" th:value="${jugadoresq2.rojas}"></td>
+		                    <td><input type="number" name="golesrecibidoseq2" th:value="${jugadoresq2.golesRecibidos}"></td>
+		                </tr>
+		        </table>
+		    </div>
+	        
+	        
+	        <button type="submit">Guardar Stats</button>
+	    </form>
+	</div>
+</body>
+</html>

@@ -13,4 +13,5 @@ public interface InterfazEquipos {
 	void eliminarEquipo(String nombre);
 	EquipoDTO buscarLEquipoParaModificar(String nombre);
 	List<EquipoDTO> ModificarEquipo(String nombre, String nuevoentrenador, String Agregar , String Eliminar);
+	List<EquipoDTO> mostrarClasifEquipos();
 }
