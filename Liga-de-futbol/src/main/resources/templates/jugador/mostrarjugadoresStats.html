@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estadisticas</title>
+</head>
+<body>
+
+	<h1>Estadisticas de los Jugadores</h1>
+	<div th:if="${not jugador.isEmpty()}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Posición</th>
+                    <th>Goles</th>
+                    <th>Asistencias</th>
+                    <th>Amarillas</th>
+                    <th>Rojas</th>
+                    <th>Goles Recibidos</th>
+                    <th>Partidos Jugados</th>
+                    <th>Valor del Mercado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iteramos sobre la lista de jugadores -->
+                <tr th:each="jugadores : ${jugador}">
+                    <td th:text="${jugadores.nombre}">Nombre del jugador</td>
+                    <td th:text="${jugadores.edad}">Edad del jugador</td>
+                    <td th:text="${jugadores.pos}">Posición del jugador</td>
+                    <td th:text="${jugadores.goles}">Goles del jugador</td>
+                    <td th:text="${jugadores.asistencias}">Asistencias del jugador</td>
+                    <td th:text="${jugadores.amarillas}">Amarillas del jugador</td>
+                    <td th:text="${jugadores.rojas}">Rojas del jugador</td>
+                    <td th:text="${jugadores.golesRecibidos}">Goles Recibidos</td>
+                    <td th:text="${jugadores.partidos_jugados}">Partidos Jugados</td>
+                    <td th:text="${jugadores.valor_mercado}">Valor del mercado del jugador</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1>Clasificación Porteros menos Goleados</h1>	
+    <div th:if="${not jugadorPt.isEmpty()}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Posición</th>
+                    <th>Goles</th>
+                    <th>Asistencias</th>
+                    <th>Amarillas</th>
+                    <th>Rojas</th>
+                    <th>Goles Recibidos</th>
+                    <th>Partidos Jugados</th>
+                    <th>Valor del Mercado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iteramos sobre la lista de jugadores -->
+                <tr th:each="jugadorPortero : ${jugadorPt}">
+                    <td th:text="${jugadorPortero.nombre}">Nombre del jugador</td>
+                    <td th:text="${jugadorPortero.edad}">Edad del jugador</td>
+                    <td th:text="${jugadorPortero.pos}">Posición del jugador</td>
+                    <td th:text="${jugadorPortero.goles}">Goles del jugador</td>
+                    <td th:text="${jugadorPortero.asistencias}">Asistencias del jugador</td>
+                    <td th:text="${jugadorPortero.amarillas}">Amarillas del jugador</td>
+                    <td th:text="${jugadorPortero.rojas}">Rojas del jugador</td>
+                    <td th:text="${jugadorPortero.golesRecibidos}">Goles Recibidos</td>
+                    <td th:text="${jugadorPortero.partidos_jugados}">Partidos Jugados</td>
+                    <td th:text="${jugadorPortero.valor_mercado}">Valor del mercado del jugador</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h1>Clasificación Goleadores</h1>	
+    <div th:if="${not jugadorDc.isEmpty()}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Posición</th>
+                    <th>Goles</th>
+                    <th>Asistencias</th>
+                    <th>Amarillas</th>
+                    <th>Rojas</th>
+                    <th>Goles Recibidos</th>
+                    <th>Partidos Jugados<th>
+                    <th>Valor del Mercado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iteramos sobre la lista de jugadores -->
+                <tr th:each="jugadorGoleador : ${jugadorDc}">
+                    <td th:text="${jugadorGoleador.nombre}">Nombre del jugador</td>
+                    <td th:text="${jugadorGoleador.edad}">Edad del jugador</td>
+                    <td th:text="${jugadorGoleador.pos}">Posición del jugador</td>
+                    <td th:text="${jugadorGoleador.goles}">Goles del jugador</td>
+                    <td th:text="${jugadorGoleador.asistencias}">Asistencias del jugador</td>
+                    <td th:text="${jugadorGoleador.amarillas}">Amarillas del jugador</td>
+                    <td th:text="${jugadorGoleador.rojas}">Rojas del jugador</td>
+                    <td th:text="${jugadorGoleador.golesRecibidos}">Goles Recibidos</td>
+                    <td th:text="${jugadorGoleador.partidos_jugados}">Partidos Jugados</td>
+                    <td th:text="${jugadorGoleador.valor_mercado}">Valor del mercado del jugador</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

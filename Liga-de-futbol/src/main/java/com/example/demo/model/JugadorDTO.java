@@ -16,6 +16,7 @@ Los jugadores solo pueden ser mayores de 16 años para participar en la liga.*/
 	private int rojas;
 	private int valor_mercado;
 	private int golesRecibidos;
+	private int partidos_jugados;
 	
 	public JugadorDTO() {
 		super();
@@ -29,6 +30,16 @@ Los jugadores solo pueden ser mayores de 16 años para participar en la liga.*/
 		this.edad = edad;
 		this.pos = pos;
 		this.valor_mercado = valor_mercado;
+	}
+	
+	
+	
+	public int getPartidos_jugados() {
+		return partidos_jugados;
+	}
+
+	public void setPartidos_jugados(int partidos_jugados) {
+		this.partidos_jugados = partidos_jugados;
 	}
 
 	public String getNombre() {
@@ -117,8 +128,10 @@ Los jugadores solo pueden ser mayores de 16 años para participar en la liga.*/
 	public String toString() {
 		return "JugadorDTO [nombre=" + nombre + ", dni=" + dni + ", edad=" + edad + ", pos=" + pos + ", goles=" + goles
 				+ ", asistencias=" + asistencias + ", amarillas=" + amarillas + ", rojas=" + rojas + ", valor_mercado="
-				+ valor_mercado + ", golesRecibidos=" + golesRecibidos + "]";
+				+ valor_mercado + ", golesRecibidos=" + golesRecibidos + ", partidos_jugados=" + partidos_jugados + "]";
 	}
+
+	
 
 	
 	

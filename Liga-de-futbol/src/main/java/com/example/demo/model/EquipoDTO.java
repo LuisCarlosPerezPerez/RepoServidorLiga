@@ -8,6 +8,8 @@ public class EquipoDTO {
 	private String nombre;
 	private String entrenador;
 	private List<JugadorDTO> jugadores = new ArrayList<>();
+	private int goles_a_favor;
+	private int goles_en_contra;
 	private int victorias;
 	private int derrotas;
 	private int empates;
@@ -84,13 +86,36 @@ public class EquipoDTO {
 		this.puntos = puntos;
 	}
 
+	
+	public int getGoles_a_favor() {
+		return goles_a_favor;
+	}
+
+
+	public void setGoles_a_favor(int goles_a_favor) {
+		this.goles_a_favor = goles_a_favor;
+	}
+
+
+	public int getGoles_en_contra() {
+		return goles_en_contra;
+	}
+
+
+	public void setGoles_en_contra(int goles_en_contra) {
+		this.goles_en_contra = goles_en_contra;
+	}
+
 
 	@Override
 	public String toString() {
 		return "EquipoDTO [nombre=" + nombre + ", entrenador=" + entrenador + ", jugadores=" + jugadores
-				+ ", victorias=" + victorias + ", derrotas=" + derrotas + ", empates=" + empates + ", puntos=" + puntos
-				+ "]";
+				+ ", goles_a_favor=" + goles_a_favor + ", goles_en_contra=" + goles_en_contra + ", victorias="
+				+ victorias + ", derrotas=" + derrotas + ", empates=" + empates + ", puntos=" + puntos + "]";
 	}
+
+
+	
 
 
 	

@@ -87,6 +87,8 @@ a.btn:hover {
             <thead>
                 <tr>
                     <th>Nombre</th>
+                    <th>Goles a favor</th>
+                    <th>Goles en contra</th>
                     <th>Victorias</th>
                     <th>Derrotas</th>
                     <th>Empates</th>
@@ -97,6 +99,8 @@ a.btn:hover {
                 <!-- Iteramos sobre la lista de equipos -->
                 <tr th:each="equipo : ${equipos}">
                     <td th:text="${equipo.nombre}">Nombre del equipo</td>
+                    <td th:text="${equipo.goles_a_favor}">Goles a favor</td>
+                    <td th:text="${equipo.goles_en_contra}">Goles en contra</td>
                     <td th:text="${equipo.victorias}">Victorias del equipo</td>
                     <td th:text="${equipo.derrotas}">Derrotas del equipo</td>
                     <td th:text="${equipo.empates}">Empates del equipo</td>

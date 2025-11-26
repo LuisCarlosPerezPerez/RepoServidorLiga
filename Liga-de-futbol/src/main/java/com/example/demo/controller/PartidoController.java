@@ -92,6 +92,18 @@ public class PartidoController {
 				listapartidos.get(i).setGoles_equipo1(goleseq1);
 				listapartidos.get(i).setGoles_equipo2(goleseq2);
 				listapartidos.get(i).setRealizado("Realizado");
+				for (int t=0; t<listaequipos.size(); t++) {
+					if(listaequipos.get(t).getNombre().equalsIgnoreCase(listapartidos.get(i).getEquipo1().getNombre())) {
+						listaequipos.get(t).setGoles_a_favor(goleseq1 + listaequipos.get(t).getGoles_a_favor());
+						listaequipos.get(t).setGoles_en_contra(goleseq2 + listaequipos.get(t).getGoles_en_contra());
+					}
+				}
+				for (int t=0; t<listaequipos.size(); t++) {
+					if(listaequipos.get(t).getNombre().equalsIgnoreCase(listapartidos.get(i).getEquipo2().getNombre())) {
+						listaequipos.get(t).setGoles_a_favor(goleseq2 + listaequipos.get(t).getGoles_a_favor());
+						listaequipos.get(t).setGoles_en_contra(goleseq1 + listaequipos.get(t).getGoles_en_contra());
+					}
+				}
 				if(goleseq1< goleseq2) {
 					victoriaeq2=true;
 				}else if(goleseq1 > goleseq2) {
@@ -179,20 +191,22 @@ public class PartidoController {
 	    for(int i=0; i<listaequipos.size(); i++) {
 	    	if(listaequipos.get(i).getNombre().equalsIgnoreCase(listapartidos.get(pos).getEquipo1().getNombre())) {
 	    		for(int j=0; j<listaequipos.get(i).getJugadores().size(); j++) {
-			    		listaequipos.get(i).getJugadores().get(j).setGoles(listapartidos.get(pos).getEquipo1().getJugadores().get(j).getGoles());
-			    		listaequipos.get(i).getJugadores().get(j).setAmarillas(listapartidos.get(pos).getEquipo1().getJugadores().get(j).getAmarillas());
-			    		listaequipos.get(i).getJugadores().get(j).setRojas(listapartidos.get(pos).getEquipo1().getJugadores().get(j).getRojas());
-			    		listaequipos.get(i).getJugadores().get(j).setGolesRecibidos(listapartidos.get(pos).getEquipo1().getJugadores().get(j).getGolesRecibidos());
+			    		listaequipos.get(i).getJugadores().get(j).setGoles(listapartidos.get(pos).getEquipo1().getJugadores().get(j).getGoles() + listaequipos.get(i).getJugadores().get(j).getGoles());
+			    		listaequipos.get(i).getJugadores().get(j).setAmarillas(listapartidos.get(pos).getEquipo1().getJugadores().get(j).getAmarillas() + listaequipos.get(i).getJugadores().get(j).getAmarillas());
+			    		listaequipos.get(i).getJugadores().get(j).setRojas(listapartidos.get(pos).getEquipo1().getJugadores().get(j).getRojas() +  listaequipos.get(i).getJugadores().get(j).getRojas());
+			    		listaequipos.get(i).getJugadores().get(j).setGolesRecibidos(listapartidos.get(pos).getEquipo1().getJugadores().get(j).getGolesRecibidos() + listaequipos.get(i).getJugadores().get(j).getGolesRecibidos());
+			    		listaequipos.get(i).getJugadores().get(j).setPartidos_jugados(listaequipos.get(i).getJugadores().get(j).getPartidos_jugados() + 1);
 		    	}
 	    	}
 	    }
 	    for(int i=0; i<listaequipos.size(); i++) {
 	    	if(listaequipos.get(i).getNombre().equalsIgnoreCase(listapartidos.get(pos).getEquipo2().getNombre())) {
 	    		for(int j=0; j<listaequipos.get(i).getJugadores().size(); j++) {
-			    		listaequipos.get(i).getJugadores().get(j).setGoles(listapartidos.get(pos).getEquipo2().getJugadores().get(j).getGoles());
-			    		listaequipos.get(i).getJugadores().get(j).setAmarillas(listapartidos.get(pos).getEquipo2().getJugadores().get(j).getAmarillas());
-			    		listaequipos.get(i).getJugadores().get(j).setRojas(listapartidos.get(pos).getEquipo2().getJugadores().get(j).getRojas());
-			    		listaequipos.get(i).getJugadores().get(j).setGolesRecibidos(listapartidos.get(pos).getEquipo2().getJugadores().get(j).getGolesRecibidos());
+			    		listaequipos.get(i).getJugadores().get(j).setGoles(listapartidos.get(pos).getEquipo2().getJugadores().get(j).getGoles() + listaequipos.get(i).getJugadores().get(j).getGoles());
+			    		listaequipos.get(i).getJugadores().get(j).setAmarillas(listapartidos.get(pos).getEquipo2().getJugadores().get(j).getAmarillas() + listaequipos.get(i).getJugadores().get(j).getAmarillas());
+			    		listaequipos.get(i).getJugadores().get(j).setRojas(listapartidos.get(pos).getEquipo2().getJugadores().get(j).getRojas() + listaequipos.get(i).getJugadores().get(j).getRojas());
+			    		listaequipos.get(i).getJugadores().get(j).setGolesRecibidos(listapartidos.get(pos).getEquipo2().getJugadores().get(j).getGolesRecibidos() + listaequipos.get(i).getJugadores().get(j).getGolesRecibidos());
+			    		listaequipos.get(i).getJugadores().get(j).setPartidos_jugados(listaequipos.get(i).getJugadores().get(j).getPartidos_jugados() + 1);
 		    	}
 	    	}
 	    }
