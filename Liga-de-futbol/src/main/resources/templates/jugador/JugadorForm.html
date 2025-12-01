@@ -83,7 +83,13 @@ button:hover {
             <input type="text" id="edad" th:field="*{edad}" />
 
             <label for="pos">Posición:</label>
-            <input type="text" id="pos" th:field="*{pos}" />
+			<select name="Posicion" th:field="*{pos}">
+			  <option value="Selecciona" disabled >-- Selecciona la posicion --</option>
+			  <option th:value="Portero">Portero</option>
+			  <option th:value="Defensa" >Defensa</option>
+			  <option th:value="Mediocentro">Mediocentro</option>
+			  <option th:value="Delantero">Delantero</option>
+			</select>
 
             <label for="valor_mercado">Valor de mercado:</label>
             <input type="text" id="valor_mercado" th:field="*{valor_mercado}" />

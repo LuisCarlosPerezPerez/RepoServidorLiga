@@ -95,10 +95,10 @@ a.btn:hover {
             </thead>
             <tbody>
                 <tr th:each="partido : ${partidos}">
-                    <td th:text="${partido.equipo1}">Equipo 1</td>
+                    <td th:text="${partido.equipo1.nombre}">Equipo 1</td>
                     <td th:text="${partido.goles_equipo1}">Goles eq1</td>
                     <td th:text="${partido.goles_equipo2}">Goles eq2</td>
-                    <td th:text="${partido.equipo2}">Equipo 2</td>
+                    <td th:text="${partido.equipo2.nombre}">Equipo 2</td>
                     <td th:text="${partido.lugar}">Lugar</td>
                     <td th:text="${partido.fecha_partido}">Fecha del partido</td>
                     <td th:text="${partido.Realizado}">Realizacion</td>

@@ -35,19 +35,7 @@ public class JugadoresController {
 	public String GuardarJugador(Model model, @ModelAttribute JugadorDTO jugador) {
 		boolean existe = Listajugadores.stream().anyMatch(j -> j.getDni().equalsIgnoreCase(jugador.getDni()));
 		boolean edad = jugador.getEdad() > 16;
-		List<String> pos = new ArrayList<>();
-		pos.add("Delantero");
-		pos.add("Defensa");
-		pos.add("Mediocentro");
-		pos.add("Portero");
-		boolean correcto= false;
-		for(int i=0; i<pos.size(); i++) {
-			if(jugador.getPos().equalsIgnoreCase(pos.get(i))) {
-				correcto = true;
-			}
-		}
-		
-		if(!existe && edad && correcto) {
+		if(!existe && edad ) {
 			Serviciojugador.GuardarJugador(jugador);
 		}
 		model.addAttribute("jugadores", Serviciojugador.mostrarJugadores());
