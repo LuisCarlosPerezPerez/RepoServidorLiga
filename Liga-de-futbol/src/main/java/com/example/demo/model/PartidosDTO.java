@@ -11,8 +11,8 @@ public class PartidosDTO {
 	private String lugar;
 	private String fecha_partido;
 	private String Realizado="Pendiente";
-	private int goles_equipo1;
-	private int goles_equipo2;
+	private int goles_equipo1 =0;
+	private int goles_equipo2 =0;
 	
 	public PartidosDTO() {
 		super();

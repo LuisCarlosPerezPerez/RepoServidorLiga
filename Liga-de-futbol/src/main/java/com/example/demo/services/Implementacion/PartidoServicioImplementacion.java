@@ -252,19 +252,26 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 	        return listapartidos;
 	    }
 	    // Agregar Estadísticas a los jugadores del equipo 1 
-	    for (int i = 0; i < listapartidos.get(pos).getEquipo1().getJugadores().size(); i++) {
-	        listapartidos.get(pos).getEquipo1().getJugadores().get(i).setGoles(golesEq1.get(i) + listapartidos.get(pos).getEquipo1().getJugadores().get(i).getGoles());
-	        listapartidos.get(pos).getEquipo1().getJugadores().get(i).setAmarillas(amarillasEq1.get(i) + listapartidos.get(pos).getEquipo1().getJugadores().get(i).getAmarillas());
-	        listapartidos.get(pos).getEquipo1().getJugadores().get(i).setRojas(rojasEq1.get(i) + listapartidos.get(pos).getEquipo1().getJugadores().get(i).getRojas());
-	        listapartidos.get(pos).getEquipo1().getJugadores().get(i).setGolesRecibidos(golesRecibidosEq1.get(i) + listapartidos.get(pos).getEquipo1().getJugadores().get(i).getGolesRecibidos());
+	    for(int i=0; i<listaequipos.size();i++) {
+	    	if(listapartidos.get(pos).getEquipo1().getNombre().equalsIgnoreCase(listaequipos.get(i).getNombre())) {
+	    		for(int j=0; j< listaequipos.get(i).getJugadores().size(); j++) {
+	    			listaequipos.get(i).getJugadores().get(j).setGoles(golesEq1.get(j) + listaequipos.get(i).getJugadores().get(j).getGoles());
+	    			listaequipos.get(i).getJugadores().get(j).setAmarillas(amarillasEq1.get(j) + listaequipos.get(i).getJugadores().get(j).getAmarillas());
+	    			listaequipos.get(i).getJugadores().get(j).setRojas(rojasEq1.get(j) + listaequipos.get(i).getJugadores().get(j).getRojas());
+	    			listaequipos.get(i).getJugadores().get(j).setGolesRecibidos(golesRecibidosEq1.get(j) + listaequipos.get(i).getJugadores().get(j).getGolesRecibidos());
+	    		}
+	    	}
 	    }
 	    // Agregar Estadísticas a los jugadores del equipo 2 
-	    for (int i = 0; i < listapartidos.get(pos).getEquipo2().getJugadores().size(); i++) {
-
-	        listapartidos.get(pos).getEquipo2().getJugadores().get(i).setGoles(golesEq2.get(i) + listapartidos.get(pos).getEquipo2().getJugadores().get(i).getGoles());
-	        listapartidos.get(pos).getEquipo2().getJugadores().get(i).setAmarillas(amarillasEq2.get(i) + listapartidos.get(pos).getEquipo2().getJugadores().get(i).getAmarillas());
-	        listapartidos.get(pos).getEquipo2().getJugadores().get(i).setRojas(rojasEq2.get(i) + listapartidos.get(pos).getEquipo2().getJugadores().get(i).getRojas());
-	        listapartidos.get(pos).getEquipo2().getJugadores().get(i).setGolesRecibidos(golesRecibidosEq2.get(i) + listapartidos.get(pos).getEquipo2().getJugadores().get(i).getGolesRecibidos());
+	    for(int i=0; i<listaequipos.size();i++) {
+	    	if(listapartidos.get(pos).getEquipo2().getNombre().equalsIgnoreCase(listaequipos.get(i).getNombre())) {
+	    		for(int j=0; j< listaequipos.get(i).getJugadores().size(); j++) {
+	    			listaequipos.get(i).getJugadores().get(j).setGoles(golesEq2.get(j) + listaequipos.get(i).getJugadores().get(j).getGoles());
+	    			listaequipos.get(i).getJugadores().get(j).setAmarillas(amarillasEq2.get(j) + listaequipos.get(i).getJugadores().get(j).getAmarillas());
+	    			listaequipos.get(i).getJugadores().get(j).setRojas(rojasEq2.get(j) + listaequipos.get(i).getJugadores().get(j).getRojas());
+	    			listaequipos.get(i).getJugadores().get(j).setGolesRecibidos(golesRecibidosEq2.get(j) + listaequipos.get(i).getJugadores().get(j).getGolesRecibidos());
+	    		}
+	    	}
 	    }
 	    // Aumentar la cantidad de partidos jugados
 	    for(int i=0; i<listaequipos.size(); i++) {
