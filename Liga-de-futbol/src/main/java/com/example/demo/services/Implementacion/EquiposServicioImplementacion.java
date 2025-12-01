@@ -40,6 +40,7 @@ public class EquiposServicioImplementacion implements InterfazEquipos{
 	@Override
 	public void eliminarEquipo(String nombre) {
 		// TODO Auto-generated method stub
+		//Eliminar equipo
 		for(int i=0; i< listaequipos.size();i++) {
 			if(listaequipos.get(i).getNombre().equalsIgnoreCase(nombre)) {
 				for(int j=0; j< listaequipos.get(i).getJugadores().size();j++) {
@@ -53,6 +54,7 @@ public class EquiposServicioImplementacion implements InterfazEquipos{
 	@Override
 	public EquipoDTO buscarLEquipoParaModificar(String nombre) {
 		// TODO Auto-generated method stub
+		//Bscar equipo que se quiere modificar
 		int pos=0;
 		for(int i=0; i<listaequipos.size();i++) {
 			if(listaequipos.get(i).getNombre().equalsIgnoreCase(nombre)) {
@@ -65,6 +67,7 @@ public class EquiposServicioImplementacion implements InterfazEquipos{
 	@Override
 	public List<EquipoDTO> ModificarEquipo(String nombre, String nuevoentrenador, String Agregar, String Eliminar) {
 		// TODO Auto-generated method stub
+		//Realizar la modificacion del equipo
 		for(int i=0; i< listaequipos.size();i++) {
 			if(listaequipos.get(i).getNombre().equalsIgnoreCase(nombre)) {
 				listaequipos.get(i).setEntrenador(nuevoentrenador);
@@ -94,6 +97,7 @@ public class EquiposServicioImplementacion implements InterfazEquipos{
 	}
 	public List<EquipoDTO> mostrarClasifEquipos() {
 		// TODO Auto-generated method stub
+		//Mostrar la clasificación segun los puntos obtenidos
 		listaequipos.sort(Comparator.comparing(EquipoDTO::getPuntos).reversed());
 		return listaequipos;
 	}

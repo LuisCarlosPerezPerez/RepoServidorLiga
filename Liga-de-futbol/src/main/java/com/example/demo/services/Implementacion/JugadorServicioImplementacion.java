@@ -35,6 +35,7 @@ public class JugadorServicioImplementacion implements InterfazJugadores{
 	@Override
 	public List<JugadorDTO> mostrarEstadisticasJugadoresTodos() {
 		// TODO Auto-generated method stub
+		//Obtener todos los jugadores
 		List<JugadorDTO> Todos = new ArrayList<>();
 		for(int i=0;i<listaequipos.size(); i++) {
 			for(int j=0; j< listaequipos.get(i).getJugadores().size();j++) {
@@ -50,6 +51,7 @@ public class JugadorServicioImplementacion implements InterfazJugadores{
 	@Override
 	public List<JugadorDTO> mostrarEstadisticasJugadoresDel() {
 		// TODO Auto-generated method stub
+		//Obtener todos los jugadores, excepto porteros
 		List<JugadorDTO> Delanteros = new ArrayList<>();
 		for(int i=0;i<listaequipos.size(); i++) {
 			for(int j=0; j< listaequipos.get(i).getJugadores().size();j++) {
@@ -72,6 +74,7 @@ public class JugadorServicioImplementacion implements InterfazJugadores{
 	@Override
 	public List<JugadorDTO> mostrarEstadisticasJugadoresPor() {
 		// TODO Auto-generated method stub
+		//Obtener a los porteros
 		List<JugadorDTO> Porteros = new ArrayList<>();
 		for(int i=0;i<listaequipos.size(); i++) {
 			for(int j=0; j< listaequipos.get(i).getJugadores().size();j++) {

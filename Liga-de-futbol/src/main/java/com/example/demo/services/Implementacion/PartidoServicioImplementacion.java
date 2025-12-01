@@ -38,6 +38,7 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 	@Override
 	public void AgregarPartido(String nombreeq1, String nombreeq2, String lugar, String fecha, int id) {
 		// TODO Auto-generated method stub
+		//Agregar el partido a la lista de partidos
 		EquipoDTO equipo1 = listaequipos.get(0);
 		EquipoDTO equipo2 = listaequipos.get(0);
 		boolean eq1existe = false;
@@ -45,11 +46,11 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 		boolean existe = listapartidos.stream().anyMatch(p -> p.getID() == id);
 		if(!existe && !nombreeq1.equalsIgnoreCase(nombreeq2)) {
 			for(int i=0; i<listaequipos.size(); i++) {
-				if(listaequipos.get(i).getNombre().equalsIgnoreCase(nombreeq1)) {
+				if(listaequipos.get(i).getNombre().equalsIgnoreCase(nombreeq1) && !listaequipos.get(i).getJugadores().isEmpty()) {
 					equipo1 = listaequipos.get(i);
 					eq1existe = true;
 				}
-				if(listaequipos.get(i).getNombre().equalsIgnoreCase(nombreeq2)) {
+				if(listaequipos.get(i).getNombre().equalsIgnoreCase(nombreeq2) && !listaequipos.get(i).getJugadores().isEmpty()) {
 					equipo2 = listaequipos.get(i);
 					eq2existe= true;
 				}
@@ -82,6 +83,7 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 	@Override
 	public List<JugadorDTO> ObtenerJugadoresEq1(int id) {
 		// TODO Auto-generated method stub
+		//Obtener una lista con los jugadores del equipo 1
 		List<JugadorDTO> listajugadoreseq1 = new ArrayList<>();
 		for(int i=0; i<listapartidos.size(); i++){
 			if(listapartidos.get(i).getID() == id) {
@@ -94,7 +96,7 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 	}
 	public List<JugadorDTO> ObtenerJugadoresEq2(int id) {
 		// TODO Auto-generated method stub
-
+		//Obtener una lista con los jugadores del equipo 2
 		List<JugadorDTO> listajugadoreseq2 = new ArrayList<>();
 		for(int i=0; i<listapartidos.size(); i++){
 			if(listapartidos.get(i).getID() == id) {
@@ -113,6 +115,7 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 		boolean victoriaeq2 = false;
 		boolean empate = false;
 		int pos=0;
+		// Guardar el partido
 		for(int i=0; i<listapartidos.size(); i++){
 			if(listapartidos.get(i).getID() == id) {
 				pos=i;
@@ -172,6 +175,7 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 			List<Integer> golesRecibidosEq2) {
 		// TODO Auto-generated method stub
 		int pos = -1;
+		//Obtener la posicion del partido de nuestro array
 	    for (int i = 0; i < listapartidos.size(); i++) {
 	        if (listapartidos.get(i).getID() == id) {
 	            pos = i;
@@ -221,7 +225,7 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 	                    listaequipos.get(t).setPuntos(listaequipos.get(t).getPuntos() - 1);
 	                }
 	            }
-	            
+	            // --- REVERTIR EQUIPO 2 ---
 	            if (listaequipos.get(t).getNombre().equalsIgnoreCase(listapartidos.get(pos).getEquipo2().getNombre())) {
 	             
 	                listaequipos.get(t).setGoles_a_favor(listaequipos.get(t).getGoles_a_favor() - golesAnterioresEq2);
@@ -247,13 +251,14 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 	        listapartidos.get(pos).setGoles_equipo2(0);
 	        return listapartidos;
 	    }
+	    // Agregar Estadísticas a los jugadores del equipo 1 
 	    for (int i = 0; i < listapartidos.get(pos).getEquipo1().getJugadores().size(); i++) {
 	        listapartidos.get(pos).getEquipo1().getJugadores().get(i).setGoles(golesEq1.get(i) + listapartidos.get(pos).getEquipo1().getJugadores().get(i).getGoles());
 	        listapartidos.get(pos).getEquipo1().getJugadores().get(i).setAmarillas(amarillasEq1.get(i) + listapartidos.get(pos).getEquipo1().getJugadores().get(i).getAmarillas());
 	        listapartidos.get(pos).getEquipo1().getJugadores().get(i).setRojas(rojasEq1.get(i) + listapartidos.get(pos).getEquipo1().getJugadores().get(i).getRojas());
 	        listapartidos.get(pos).getEquipo1().getJugadores().get(i).setGolesRecibidos(golesRecibidosEq1.get(i) + listapartidos.get(pos).getEquipo1().getJugadores().get(i).getGolesRecibidos());
 	    }
-
+	    // Agregar Estadísticas a los jugadores del equipo 2 
 	    for (int i = 0; i < listapartidos.get(pos).getEquipo2().getJugadores().size(); i++) {
 
 	        listapartidos.get(pos).getEquipo2().getJugadores().get(i).setGoles(golesEq2.get(i) + listapartidos.get(pos).getEquipo2().getJugadores().get(i).getGoles());
@@ -261,7 +266,7 @@ public class PartidoServicioImplementacion implements InterfazPartidos {
 	        listapartidos.get(pos).getEquipo2().getJugadores().get(i).setRojas(rojasEq2.get(i) + listapartidos.get(pos).getEquipo2().getJugadores().get(i).getRojas());
 	        listapartidos.get(pos).getEquipo2().getJugadores().get(i).setGolesRecibidos(golesRecibidosEq2.get(i) + listapartidos.get(pos).getEquipo2().getJugadores().get(i).getGolesRecibidos());
 	    }
-	    
+	    // Aumentar la cantidad de partidos jugados
 	    for(int i=0; i<listaequipos.size(); i++) {
 	    	if(listaequipos.get(i).getNombre().equalsIgnoreCase(listapartidos.get(pos).getEquipo1().getNombre())) {
 	    		for(int j=0; j<listaequipos.get(i).getJugadores().size(); j++) {
