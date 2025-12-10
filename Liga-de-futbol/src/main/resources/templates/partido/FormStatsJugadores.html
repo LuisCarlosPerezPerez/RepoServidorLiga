@@ -134,10 +134,10 @@ body > div:first-of-type {
 		                </tr>
 		                <tr th:each="jugadoresq1 : ${jugadoreq1}">
 		                    <td th:text="${jugadoresq1.nombre}">Nombre</td>
-		                    <td><input type="number" name="goleseq1" th:value="${jugadoresq1.goles}" min=0></td>
-		                    <td><input type="number" name="amarillaseq1" th:value="${jugadoresq1.amarillas}" max=2 min=0></td>
-		                    <td><input type="number" name="rojaseq1"  th:value="${jugadoresq1.rojas}" max=1 min=0></td>
-		                    <td><input type="number" name="golesrecibidoseq1" th:value="${jugadoresq1.golesRecibidos}" min=0></td>
+		                    <td><input type="number" name="goleseq1" value="0" min=0></td>
+		                    <td><input type="number" name="amarillaseq1" value="0" max=2 min=0></td>
+		                    <td><input type="number" name="rojaseq1"  value="0" max=1 min=0></td>
+		                    <td><input type="number" name="golesrecibidoseq1" value="0" min=0></td>
 		                </tr>
 		        </table>
 		    </div>
@@ -154,10 +154,10 @@ body > div:first-of-type {
 		                </tr>
 		                <tr th:each="jugadoresq2 : ${jugadoreq2}">
 		                    <td th:text="${jugadoresq2.nombre}">Nombre</td>
-		                    <td><input type="number" name="goleseq2" th:value="${jugadoresq2.goles}" min=0></td>
-		                    <td><input type="number" name="amarillaseq2" th:value="${jugadoresq2.amarillas}" max=2 min=0></td>
-		                    <td><input type="number" name="rojaseq2" th:value="${jugadoresq2.rojas}" max=1 min=0></td>
-		                    <td><input type="number" name="golesrecibidoseq2" th:value="${jugadoresq2.golesRecibidos}" min=0></td>
+		                    <td><input type="number" name="goleseq2" value="0" min=0></td>
+		                    <td><input type="number" name="amarillaseq2" value="0" max=2 min=0></td>
+		                    <td><input type="number" name="rojaseq2" value="0" max=1 min=0></td>
+		                    <td><input type="number" name="golesrecibidoseq2" value="0" min=0></td>
 		                </tr>
 		        </table>
 		    </div>

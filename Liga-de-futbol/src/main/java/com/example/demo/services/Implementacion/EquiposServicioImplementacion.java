@@ -55,7 +55,7 @@ public class EquiposServicioImplementacion implements InterfazEquipos{
 	public EquipoDTO buscarLEquipoParaModificar(String nombre) {
 		// TODO Auto-generated method stub
 		//Bscar equipo que se quiere modificar
-		int pos=0;
+		int pos=-1;
 		for(int i=0; i<listaequipos.size();i++) {
 			if(listaequipos.get(i).getNombre().equalsIgnoreCase(nombre)) {
 				pos=i;
